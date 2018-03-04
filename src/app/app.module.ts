@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { LogTestComponent } from './log-test/log-test.component';
+import { LogService } from './shared/log.services';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, LogTestComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
