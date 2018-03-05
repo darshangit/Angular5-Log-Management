@@ -1,3 +1,23 @@
 <button (click)="testLog()">
     Test Log
 </button>
+
+<button (click)="clearLog()">
+    Clear Log
+</button>
+
+<button (click)="objectLog()">
+    Object Log
+</button>
+
+<br />
+
+<button (click)="getLocalStorage()">
+    Get From Local Storage
+</button>
+<br />
+<ul>
+    <li *ngFor="let log of logEntries">
+        {{log.message}}
+    </li>
+</ul>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LogPublisher, LogConsole } from './log-publishers';
+import { LogPublisher, LogConsole, LogLocalStorage } from './log-publishers';
 
 @Injectable()
 export class LogPublisherService {
@@ -12,5 +12,6 @@ export class LogPublisherService {
 
     buildPublishers(): void {
         this.publishers.push(new LogConsole());
+        this.publishers.push(new LogLocalStorage());
     }
 }

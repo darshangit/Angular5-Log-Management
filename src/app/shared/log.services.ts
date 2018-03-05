@@ -88,18 +88,6 @@ export class LogService {
     this.writeToLog(msg, LogLevel.Fatal, optionalParams);
   }
 
-  private formatParams(params: any[]): string {
-    let ret: string = params.join(',');
-
-    if (params.some(p => typeof p === 'object')) {
-      ret = '';
-      for (const item of params) {
-        ret += JSON.stringify(item) + ',';
-      }
-    }
-    return ret;
-  }
-
   private writeToLog(msg: string, level: LogLevel, params?: any[]) {
     if (this.shouldLog(level)) {
       const entry: LogEntry = new LogEntry();
@@ -118,5 +106,11 @@ export class LogService {
 
   log(msg: any, ...optionalParams: any[]) {
     this.writeToLog(msg, LogLevel.All, optionalParams);
+  }
+
+  clear(): void {
+    for (const logger of this.publishers) {
+      logger.clear();
+    }
   }
 }
