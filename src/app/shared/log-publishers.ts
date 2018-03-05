@@ -2,6 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { LogEntry } from './log.services';
 
+
 export abstract class LogPublisher {
   location: string;
 
@@ -21,6 +22,12 @@ export class LogConsole extends LogPublisher {
 
     return Observable.of(true);
   }
+}
+
+export class LogPublisherConfig {
+  loggerName: string;
+  loggerLocation: string;
+  isActive: boolean;
 }
 
 export class LogLocalStorage extends LogPublisher {
